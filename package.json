@@ -4,7 +4,7 @@
   "description": "OCaml workflow with esy",
   "license": "MIT",
   "pjc": {
-    "build": "make -f $solvuu_build__install/lib/solvuu-build/solvuu.mk byte _build/META && rm -rf $cur__lib ocamlfind install $cur__name $cur__target_dir/META"
+    "build": "make -f $solvuu_build__install/lib/solvuu-build/solvuu.mk byte _build/META && rm -rf $cur__lib/$cur__name && ocamlfind install $cur__name $cur__target_dir/META"
   },
   "scripts": {
     "build": "esy build",
