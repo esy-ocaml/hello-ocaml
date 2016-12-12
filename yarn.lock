@@ -6,7 +6,7 @@ babylon@^6.8.4:
 
 esy@andreypopp/esy:
   version "0.0.1"
-  resolved "https://codeload.github.com/andreypopp/esy/tar.gz/674ace6b681e1ce6baf55e970acf322db75765f3"
+  resolved "https://codeload.github.com/andreypopp/esy/tar.gz/449671055435d6a2bbf14c39dd039b2441c4b7fd"
   dependencies:
     flow-remove-types "^1.0.5"
     mkdirp "^0.5.1"
