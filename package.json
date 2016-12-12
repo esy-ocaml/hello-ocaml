@@ -1,0 +1,22 @@
+{
+  "name": "esy-ocaml-project",
+  "version": "0.1.0",
+  "description": "OCaml workflow with esy",
+  "license": "MIT",
+  "pjc": {
+    "build": "make -f $solvuu_build__install/lib/solvuu-build/solvuu.mk byte _build/META && rm -rf $cur__lib ocamlfind install $cur__name $cur__target_dir/META"
+  },
+  "scripts": {
+    "build": "esy build",
+    "shell": "esy shell",
+    "clean": "esy clean",
+    "ocaml": "esy ocaml"
+  },
+  "dependencies": {
+    "solvuu-build": "andreypopp/solvuu-build#pjc",
+    "ocaml": "andreypopp/ocaml#trunk"
+  },
+  "devDependencies": {
+    "esy": "andreypopp/esy"
+  }
+}
