@@ -13,10 +13,13 @@
     "ocaml": "esy ocaml"
   },
   "dependencies": {
-    "ocaml": "andreypopp/ocaml#trunk",
     "solvuu-build": "andreypopp/solvuu-build#pjc"
   },
+  "peerDepdencies": {
+    "ocaml": "andreypopp/ocaml#trunk"
+  },
   "devDependencies": {
-    "esy": "andreypopp/esy#714702f8fc8524b3a87dbff114714f71a7976286"
+    "esy": "andreypopp/esy#2efb4065a54cee731632a4c17d67e40ea814a30d",
+    "ocaml": "andreypopp/ocaml#trunk"
   }
 }
