@@ -13,7 +13,8 @@
     "ocaml": "esy ocaml"
   },
   "dependencies": {
-    "solvuu-build": "andreypopp/solvuu-build#pjc"
+    "solvuu-build": "andreypopp/solvuu-build#pjc",
+    "merlin": "andreypopp/merlin#esy"
   },
   "peerDependencies": {
     "ocaml": "andreypopp/ocaml#esy"
