@@ -4,13 +4,14 @@
   "description": "OCaml workflow with esy",
   "license": "MIT",
   "pjc": {
-    "build": "make -f $solvuu_build__install/lib/solvuu-build/solvuu.mk byte native _build/META && rm -rf $cur__lib/$cur__name && ocamlfind install $cur__name $cur__target_dir/META"
+    "build": "make -f $solvuu_build__install/lib/solvuu-build/solvuu.mk .merlin byte native _build/META && rm -rf $cur__lib/$cur__name && ocamlfind install $cur__name $cur__target_dir/META"
   },
   "scripts": {
     "build": "esy build",
     "shell": "esy shell",
     "clean": "esy clean",
-    "ocaml": "esy ocaml"
+    "ocaml": "esy ocaml",
+    "editor": "esy $EDITOR"
   },
   "dependencies": {
     "solvuu-build": "andreypopp/solvuu-build#pjc",
