@@ -5,3 +5,4 @@ _install/
 .merlin
 .ocamlinit
 *.byte
+*.native
