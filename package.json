@@ -4,7 +4,7 @@
   "description": "OCaml workflow with esy",
   "license": "MIT",
   "pjc": {
-    "build": "make -f $solvuu_build__install/lib/solvuu-build/solvuu.mk byte _build/META && rm -rf $cur__lib/$cur__name && ocamlfind install $cur__name $cur__target_dir/META"
+    "build": "make -f $solvuu_build__install/lib/solvuu-build/solvuu.mk byte native _build/META && rm -rf $cur__lib/$cur__name && ocamlfind install $cur__name $cur__target_dir/META"
   },
   "scripts": {
     "build": "esy build",
@@ -15,11 +15,11 @@
   "dependencies": {
     "solvuu-build": "andreypopp/solvuu-build#pjc"
   },
-  "peerDepdencies": {
-    "ocaml": "andreypopp/ocaml#trunk"
+  "peerDependencies": {
+    "ocaml": "andreypopp/ocaml#esy"
   },
   "devDependencies": {
-    "esy": "andreypopp/esy#2efb4065a54cee731632a4c17d67e40ea814a30d",
-    "ocaml": "andreypopp/ocaml#trunk"
+    "esy": "andreypopp/esy#8a0181b12c9d53fda95b0f9e755bba57148e2347",
+    "ocaml": "andreypopp/ocaml#esy"
   }
 }
