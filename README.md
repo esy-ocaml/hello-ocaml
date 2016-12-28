@@ -42,6 +42,6 @@ and start using it (`$EDITOR` env var must point to your editor of choice).
 
 Merlin ships with Vim plugin, to enable it add the following lines to `.vimrc`:
 
-    if $merlin__install != ''
-      execute "set rtp+=" . $merlin__install . "/share/merlin/vim"
+    if $opam_merlin__install != ''
+      execute "set rtp+=" . $opam_merlin__install . "/share/merlin/vim"
     endif
