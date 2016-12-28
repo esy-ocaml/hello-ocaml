@@ -4,6 +4,13 @@ A project which demonstrates an OCaml workflow with esy.
 
 ## Installation
 
+While we are in an experiment mode you need to use a custom registry for `@opam`
+scope (this is where we publish opam packages to):
+
+    % npm config set @opam:registry https://opam-npm.andreypopp.com
+
+Then just use `npm install` as usual:
+
     % npm install .
 
 ## Build
