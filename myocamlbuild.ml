@@ -1,6 +1,6 @@
 open Solvuu_build.Std
 
-let project_name = "esy-ocaml-project"
+let project_name = "EsyOcaml"
 let version = "0.1.0"
 
 let lib = Project.lib project_name
@@ -10,6 +10,7 @@ let lib = Project.lib project_name
 
 let app = Project.app "hello"
   ~file: "bin/hello.ml"
+  ~internal_deps: [lib]
 
 let () =
   Project.basic1 ~project_name ~version [lib; app]
