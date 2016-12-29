@@ -5,7 +5,7 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "make -f $opam_solvuu_build__install/lib/solvuu-build/solvuu.mk .merlin byte native _build/META",
+      "make -f $opam_solvuu_build__install/lib/solvuu-build/solvuu.mk .merlin .ocamlinit byte native _build/META",
       "rm -rf $cur__lib/$cur__name",
       "ocamlfind install $cur__name $cur__target_dir/META"
     ]
@@ -19,13 +19,16 @@
   },
   "dependencies": {
     "@opam/solvuu-build": "*",
-    "@opam/merlin": "*"
+    "@opam/merlin": "*",
+    "@opam/utop": "*",
+    "@opam/ppx_tools": "5.4020.0",
+    "@opam/lwt": "2.5.2"
   },
   "peerDependencies": {
     "ocaml": "andreypopp/ocaml#esy"
   },
   "devDependencies": {
-    "esy": "andreypopp/esy#365f7df",
+    "esy": "andreypopp/esy#8fa320c",
     "ocaml": "andreypopp/ocaml#esy"
   }
 }
