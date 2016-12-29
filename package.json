@@ -20,8 +20,7 @@
   "dependencies": {
     "@opam/solvuu-build": "*",
     "@opam/merlin": "*",
-    "@opam/utop": "*",
-    "@opam/ppx_tools": "5.4020.0"
+    "@opam/utop": "*"
   },
   "peerDependencies": {
     "ocaml": "andreypopp/ocaml#esy"
