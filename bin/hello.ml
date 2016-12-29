@@ -1,1 +1,2 @@
-EsyOcaml.Hello.hello ()
+let () =
+  EsyOcaml.Hello.hello ()
