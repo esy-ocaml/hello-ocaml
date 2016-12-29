@@ -14,15 +14,14 @@
     "build": "esy build",
     "shell": "esy shell",
     "clean": "esy clean",
-    "ocaml": "esy ocaml",
+    "repl": "esy utop",
     "editor": "esy $EDITOR"
   },
   "dependencies": {
     "@opam/solvuu-build": "*",
     "@opam/merlin": "*",
     "@opam/utop": "*",
-    "@opam/ppx_tools": "5.4020.0",
-    "@opam/lwt": "2.5.2"
+    "@opam/ppx_tools": "5.4020.0"
   },
   "peerDependencies": {
     "ocaml": "andreypopp/ocaml#esy"

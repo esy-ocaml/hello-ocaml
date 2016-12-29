@@ -27,7 +27,7 @@ Then just use `npm install` as usual:
 
 ## Run preconfigured OCaml REPL
 
-    % npm run ocaml
+    % npm run repl
 
 ## Merlin
 
