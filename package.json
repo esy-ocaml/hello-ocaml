@@ -27,7 +27,7 @@
     "ocaml": "andreypopp/ocaml#esy"
   },
   "devDependencies": {
-    "esy": "andreypopp/esy#8fa320c",
+    "esy": "andreypopp/esy#dcf6337",
     "ocaml": "andreypopp/ocaml#esy"
   }
 }
