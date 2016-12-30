@@ -13,6 +13,9 @@ Then just use `npm install` as usual:
 
     % npm install .
 
+**WARNING:** Only `npm` is supported right now (not `yarn`, `pnpm`, or `ied`).
+This restriction is temporary and will be lifted in the future.
+
 ## Build
 
     % npm run build
