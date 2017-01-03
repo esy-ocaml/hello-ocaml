@@ -2,7 +2,5 @@ npm-debug.log
 node_modules/
 _build/
 _install/
-.merlin
-.ocamlinit
 *.byte
 *.native
