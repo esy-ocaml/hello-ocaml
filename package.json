@@ -18,10 +18,11 @@
     "editor": "esy $EDITOR"
   },
   "dependencies": {
-    "@opam/solvuu-build": "*",
+    "@opam/lambda-term": "*",
     "@opam/merlin": "*",
-    "@opam/utop": "*",
-    "@opam/lambda-term": "*"
+    "@opam/ocp-indent": "^1.5.3",
+    "@opam/solvuu-build": "*",
+    "@opam/utop": "*"
   },
   "peerDependencies": {
     "ocaml": "andreypopp/ocaml#esy"
