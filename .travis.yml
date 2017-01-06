@@ -4,6 +4,8 @@ node_js:
 os:
 - linux
 - osx
+before_install:
+- npm config set @opam:registry https://opam-npm.andreypopp.com
 script:
 - npm run build
 
