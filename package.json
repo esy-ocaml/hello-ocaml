@@ -29,7 +29,7 @@
     "ocaml": "andreypopp/ocaml#esy"
   },
   "devDependencies": {
-    "esy": "jordwalke/esy#master",
+    "esy": "andreypop/esy#fix-eject",
     "ocaml": "andreypopp/ocaml#esy"
   }
 }
