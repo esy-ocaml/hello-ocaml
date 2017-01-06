@@ -15,7 +15,8 @@
     "shell": "esy shell",
     "clean": "esy clean",
     "repl": "esy utop",
-    "editor": "esy $EDITOR"
+    "editor": "esy $EDITOR",
+    "test": "echo 'No tests but that is ok for now...'"
   },
   "dependencies": {
     "@opam/lambda-term": "*",
