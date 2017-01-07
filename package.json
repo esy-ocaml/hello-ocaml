@@ -29,7 +29,7 @@
     "ocaml": "andreypopp/ocaml#esy"
   },
   "devDependencies": {
-    "esy": "andreypopp/esy#ci-logging",
+    "esy": "andreypopp/esy#allow-cur-root-writes",
     "ocaml": "andreypopp/ocaml#esy"
   }
 }
