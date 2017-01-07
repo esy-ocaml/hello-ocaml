@@ -8,4 +8,6 @@ before_install:
 - npm config set @opam:registry https://opam-npm.andreypopp.com
 script:
 - npm run build
+- ./node_modules/.bin/esy ./_build/bin/hello.byte
+- ./node_modules/.bin/esy ./_build/bin/hello.native
 
