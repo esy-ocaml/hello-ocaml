@@ -30,6 +30,6 @@
   },
   "devDependencies": {
     "esy": "jordwalke/esy#allow-cur-root-writes",
-    "ocaml": "andreypopp/ocaml#esy"
+    "ocaml": "esy-ocaml/ocaml#esy"
   }
 }
