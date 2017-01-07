@@ -1,5 +1,7 @@
 # OCaml esy project
 
+[![Build Status](https://travis-ci.org/andreypopp/esy-ocaml-project.svg?branch=master)](https://travis-ci.org/andreypopp/esy-ocaml-project)
+
 A project which demonstrates an OCaml workflow with esy.
 
 ## Installation
