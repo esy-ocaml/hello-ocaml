@@ -23,13 +23,14 @@
     "@opam/merlin": "*",
     "@opam/ocp-indent": "^1.5.3",
     "@opam/solvuu-build": "*",
-    "@opam/utop": "*"
+    "@opam/utop": "*",
+    "@opam/core": "*"
   },
   "peerDependencies": {
     "ocaml": "andreypopp/ocaml#esy"
   },
   "devDependencies": {
-    "esy": "jordwalke/esy#allow-cur-root-writes",
+    "esy": "jordwalke/esy",
     "ocaml": "esy-ocaml/ocaml#esy"
   }
 }
