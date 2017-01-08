@@ -23,8 +23,7 @@
     "@opam/merlin": "*",
     "@opam/ocp-indent": "^1.5.3",
     "@opam/solvuu-build": "*",
-    "@opam/utop": "*",
-    "@opam/core": "*"
+    "@opam/utop": "*"
   },
   "peerDependencies": {
     "ocaml": "andreypopp/ocaml#esy"
