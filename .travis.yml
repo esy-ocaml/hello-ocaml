@@ -4,10 +4,10 @@ node_js:
 os:
 - linux
 - osx
-before_install:
+install:
 - npm install --global git://github.com/jordwalke/esy.git#beta-v0.0.2
-script:
 - esy install
+script:
 - esy build
 - esy ./_build/bin/hello.byte
 - esy ./_build/bin/hello.native
