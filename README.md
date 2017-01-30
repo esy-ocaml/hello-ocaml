@@ -2,51 +2,64 @@
 
 [![Build Status](https://travis-ci.org/andreypopp/esy-ocaml-project.svg?branch=master)](https://travis-ci.org/andreypopp/esy-ocaml-project)
 
-A project which demonstrates an OCaml workflow with esy.
+A project which demonstrates an OCaml workflow with `esy`.
+
+`esy` is an overlay on top of `package.json` based package managers, that
+enables `package.json` packages to use compilers and environments quickly, and
+easily.
 
 ## Installation
 
-While we are in an experiment mode you need to use a custom registry for `@opam`
-scope (this is where we publish opam packages to):
+You can install the beta using `npm install -g`.
 
-    % npm config set @opam:registry https://opam-npm.andreypopp.com
-
-Then just use `npm install` as usual:
-
-    % npm install .
+    npm install -g git://github.com/jordwalke/esy.git#beta-v0.0.2
 
 **WARNING:** Only `npm` is supported right now (not `yarn`, `pnpm`, or `ied`).
 This restriction is temporary and will be lifted in the future.
 
 ## Build
 
-    % npm run build
+    % esy build
 
 ## Clean build artifcats
 
-    % npm run clean
+    % esy clean
 
 ## Shell into build environment
 
-    % npm run shell
+    % esy shell
 
 ## Run preconfigured OCaml REPL
 
-    % npm run repl
+    % esy repl
 
 ## Merlin
 
 Merlin integration is included. If your editor of choice has Merlin
 plugin/extension then you can run:
 
-    % npm run editor
+    % esy $EDITOR
 
 and start using it (`$EDITOR` env var must point to your editor of choice).
 
 ## Merlin + Vim
 
-Merlin ships with Vim plugin, to enable it add the following lines to `.vimrc`:
+This project also builds the Merlin IDE plugin as a dependency, which includes
+Vim support. To enable it install the tiny Vim plugin which will load Merlin's
+Vim support from the environment, by putting this in your `.vimrc`.
 
-    if $opam_merlin__install != ''
-      execute "set rtp+=" . $opam_merlin__install . "/share/merlin/vim"
-    endif
+    " If using NeoBundle(recommended)
+    NeoBundle 'reasonml/vim-reason-loader'
+
+    " Using Vundle
+    Bundle 'reasonml/vim-reason-loader'
+
+
+Then whenever starting Vim inside the project's `esy` environment, that vim
+plugin will automatically load the *actual* Merlin plugin.
+
+
+    % esy vim
+
+    % # Or
+    % esy $EDITOR
