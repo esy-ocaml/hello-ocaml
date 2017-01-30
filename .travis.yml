@@ -5,9 +5,10 @@ os:
 - linux
 - osx
 before_install:
-- npm config set @opam:registry https://opam-npm.andreypopp.com
+- npm install --global git://github.com/jordwalke/esy.git#beta-v0.0.2
 script:
-- npm run build
-- ./node_modules/.bin/esy ./_build/bin/hello.byte
-- ./node_modules/.bin/esy ./_build/bin/hello.native
+- esy install
+- esy build
+- esy ./_build/bin/hello.byte
+- esy ./_build/bin/hello.native
 
