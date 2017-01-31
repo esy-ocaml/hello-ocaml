@@ -14,9 +14,6 @@ You can install the beta using `npm install -g`.
 
     npm install -g git://github.com/jordwalke/esy.git#beta-v0.0.2
 
-**WARNING:** Only `npm` is supported right now (not `yarn`, `pnpm`, or `ied`).
-This restriction is temporary and will be lifted in the future.
-
 ## Build
 
     % esy build
