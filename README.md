@@ -8,28 +8,39 @@ A project which demonstrates an OCaml workflow with `esy`.
 enables `package.json` packages to use compilers and environments quickly, and
 easily.
 
-## Installation
+## Usage
 
-You can install the beta using `npm install -g`.
+You need Esy, you can install the beta using `npm install -g`.
 
-    npm install -g git://github.com/jordwalke/esy.git#beta-v0.0.2
+    % npm install -g git://github.com/jordwalke/esy.git#beta-v0.0.2
+    
+Then you can install the project using:
 
-## Build
+    % esy install
+
+Then build the project:
 
     % esy build
+    
+Run compiled executables:
 
-## Clean build artifcats
+    % esy ./hello.byte
+    % esy ./hello.native
+    
+Note that you need to run them with Esy as they rely on the environment.
+
+To clean built artefacts:
 
     % esy clean
 
-## Shell into build environment
+Shell into build environment:
 
     % esy shell
 
-## Run preconfigured OCaml REPL
+Run preconfigured OCaml REPL:
 
     % esy utop
-
+    
 ## Merlin
 
 Merlin integration is included. If your editor of choice has Merlin
