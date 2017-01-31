@@ -31,7 +31,7 @@ This restriction is temporary and will be lifted in the future.
 
 ## Run preconfigured OCaml REPL
 
-    % esy repl
+    % esy utop
 
 ## Merlin
 
