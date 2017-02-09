@@ -19,14 +19,14 @@
     "test": "echo 'No tests but that is ok for now...'"
   },
   "dependencies": {
-    "@opam/lambda-term": "*",
-    "@opam/merlin": "*",
-    "@opam/ocp-indent": "^1.5.3",
-    "@opam/solvuu-build": "*",
-    "@opam/utop": "*"
+    "@opam-alpha/lambda-term": "*",
+    "@opam-alpha/merlin": "*",
+    "@opam-alpha/ocp-indent": "^1.5.3",
+    "@opam-alpha/solvuu-build": "*",
+    "@opam-alpha/utop": "*"
   },
   "peerDependencies": {
-    "ocaml": "andreypopp/ocaml#esy"
+    "ocaml": "esy-ocaml/ocaml#esy"
   },
   "devDependencies": {
     "ocaml": "esy-ocaml/ocaml#esy"
