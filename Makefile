@@ -1,4 +1,4 @@
-include $(opam_solvuu_build__install)/lib/solvuu-build/solvuu.mk
+include $(opam_alpha_solvuu_build__install)/lib/solvuu-build/solvuu.mk
 
 .DEFAULT: all
 
