@@ -12,7 +12,7 @@ easily.
 
 You need Esy, you can install the beta using `npm install -g`.
 
-    % npm install -g git://github.com/jordwalke/esy.git#beta-v0.0.2
+    % npm install -g git://github.com/reasonml/esy.git#beta-v0.0.2
     
 Then you can install the project using:
 
