@@ -1,1 +1,5 @@
-_build/.merlin
+PKG lambda-term lwt
+B ./_build/lib/**
+B ./_build/bin/**
+S ./lib/**
+S ./bin/**

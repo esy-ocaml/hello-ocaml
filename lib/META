@@ -1,0 +1,5 @@
+description = "OCaml workflow with Esy"
+version = "0.1.0"
+requires = "lambda-term lwt"
+archive(byte) = "libhello.cma"
+archive(native) = "libhello.cmxa"
