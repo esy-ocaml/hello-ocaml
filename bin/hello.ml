@@ -1,2 +1,2 @@
 let () =
-  Lwt_main.run (EsyOcaml.Hello.hello ())
+  Lwt_main.run (Util.hello ())

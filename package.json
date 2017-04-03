@@ -1,13 +1,11 @@
 {
   "name": "esy-ocaml-project",
   "version": "0.1.0",
-  "description": "OCaml workflow with esy",
+  "description": "OCaml workflow with Esy",
   "license": "MIT",
   "esy": {
     "build": [
-      "make all",
-      "rm -rf $cur__lib/$cur__name",
-      "ocamlfind install $cur__name $cur__target_dir/META"
+      "make build install"
     ]
   },
   "scripts": {
@@ -22,8 +20,8 @@
     "@opam-alpha/lambda-term": "*",
     "@opam-alpha/merlin": "*",
     "@opam-alpha/ocp-indent": "^1.5.3",
-    "@opam-alpha/solvuu-build": "*",
-    "@opam-alpha/utop": "*"
+    "@opam-alpha/utop": "*",
+    "@opam-alpha/ocamlbuild": "*"
   },
   "peerDependencies": {
     "ocaml": "esy-ocaml/ocaml#esy"
