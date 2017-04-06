@@ -20,8 +20,7 @@
     "@opam-alpha/lambda-term": "*",
     "@opam-alpha/merlin": "*",
     "@opam-alpha/ocp-indent": "^1.5.3",
-    "@opam-alpha/utop": "*",
-    "@opam-alpha/ocamlbuild": "*"
+    "@opam-alpha/utop": "*"
   },
   "peerDependencies": {
     "ocaml": "esy-ocaml/ocaml#esy"
