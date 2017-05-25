@@ -5,7 +5,7 @@ os:
 - linux
 - osx
 install:
-- npm install --global https://github.com/reasonml/esy/archive/beta-v0.0.2.tar.gz
+- npm install --global https://github.com/reasonml/esy/archive/beta-v0.0.4.tar.gz
 - esy install
 script:
 - esy build
