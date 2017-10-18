@@ -12,8 +12,8 @@ easily.
 
 You need Esy, you can install the beta using `npm install -g`.
 
-    % npm install -g git://github.com/reasonml/esy.git#beta-v0.0.2
-    
+    % npm install -g @esy-ocaml/esy@0.0.8
+
 Then you can install the project using:
 
     % esy install
@@ -21,12 +21,11 @@ Then you can install the project using:
 Then build the project:
 
     % esy build
-    
+
 Run compiled executables:
 
-    % esy ./hello.byte
-    % esy ./hello.native
-    
+    % esy ./_install/bin/hello.native
+
 Note that you need to run them with Esy as they rely on the environment.
 
 To clean built artefacts:
@@ -36,11 +35,12 @@ To clean built artefacts:
 Shell into build environment:
 
     % esy shell
+    % hello.native # command is in $PATH!
 
 Run preconfigured OCaml REPL:
 
     % esy utop
-    
+
 ## Merlin
 
 Merlin integration is included. If your editor of choice has Merlin
@@ -61,7 +61,6 @@ Vim support from the environment, by putting this in your `.vimrc`.
 
     " Using Vundle
     Bundle 'reasonml/vim-reason-loader'
-
 
 Then whenever starting Vim inside the project's `esy` environment, that vim
 plugin will automatically load the *actual* Merlin plugin.
