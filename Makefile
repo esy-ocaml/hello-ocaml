@@ -17,8 +17,7 @@ define OCB_FLAGS
 	-no-links \
 	-use-ocamlfind \
 	${OCB_TAGS:%=-tag-line "%"} \
-	-I lib -I bin \
-	-build-dir $$cur__target_dir
+	-I lib -I bin
 endef
 
 define OCB_LIB_FLAGS

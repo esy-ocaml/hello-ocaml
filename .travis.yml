@@ -5,10 +5,9 @@ os:
 - linux
 - osx
 install:
-- npm install --global https://github.com/reasonml/esy/archive/beta-v0.0.4.tar.gz
+- npm install --global @esy-ocaml/esy@0.0.8
 - esy install
 script:
 - esy build
-- esy ./_build/bin/hello.byte
-- esy ./_build/bin/hello.native
+- esy ./_install/bin/hello.native
 
