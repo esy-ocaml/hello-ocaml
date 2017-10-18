@@ -21,48 +21,51 @@ define OCB_FLAGS
 	-build-dir $$cur__target_dir
 endef
 
-OCB = ocamlbuild ${OCB_FLAGS}
+define OCB_LIB_FLAGS
+	-build-dir $$cur__target_dir
+endef
+
+define OCB_BIN_FLAGS
+	-build-dir $$cur__install
+endef
 
 #
 # Shortcuts
 #
 
 all: build
-build: native byte lib
-install: install-bin install-lib
 
 #
 # Build targets
 #
 
-lib:
-	@${OCB} libhello.cma
-	@${OCB} libhello.cmxa
-	@${OCB} libhello.cmxs
+build: native byte lib
 
-native:
-	@${OCB} hello.native
+lib: libhello.cma libhello.cmxa libhello.cmxs
+native: hello.native
+byte: hello.byte
 
-byte:
-	@${OCB} hello.byte
+%.cma %.cmxa %.cmxs:
+	@ocamlbuild ${OCB_FLAGS} ${OCB_LIB_FLAGS} $(@)
+
+%.native %.byte:
+	@ocamlbuild ${OCB_FLAGS} ${OCB_BIN_FLAGS} $(@)
 
 #
 # Installation
 #
 
+install: install-lib
+
 install-lib: lib
 	@ocamlfind install $$cur__name lib/META $$cur__target_dir/lib/libhello.*
-
-install-bin: native
-	@ln -s $$cur__target_dir/bin/hello.native $$cur__bin/hello
-	@ln -s $$cur__target_dir/bin/hello.byte $$cur__bin/hello.byte
 
 #
 # Utilities
 #
 
 clean:
-	@${OCB} -clean
+	@ocamlbuild -clean
 
 .DEFAULT: all
-.PHONY: all build install clean lib native byte install-lib install-bin
+.PHONY: all build install clean lib native byte install-lib

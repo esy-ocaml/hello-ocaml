@@ -6,7 +6,12 @@
   "esy": {
     "build": [
       "make build install"
-    ]
+    ],
+    "release": {
+      "releasedBinaries": [
+        "hello.native"
+      ]
+    }
   },
   "scripts": {
     "build": "esy build",
