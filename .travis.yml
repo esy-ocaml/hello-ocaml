@@ -5,7 +5,7 @@ os:
 - linux
 - osx
 install:
-- npm install --global @esy-ocaml/esy@0.0.8
+- npm install --global @esy-ocaml/esy@latest
 - esy install
 script:
 - esy build
