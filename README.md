@@ -12,7 +12,7 @@ easily.
 
 You need Esy, you can install the beta using `npm install -g`.
 
-    % npm install -g @esy-ocaml/esy
+    % npm install -g esy
 
 Then you can install the project using:
 
