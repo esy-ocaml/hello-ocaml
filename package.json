@@ -22,8 +22,8 @@
     "test": "echo 'No tests but that is ok for now...'"
   },
   "dependencies": {
-    "@opam-alpha/lwt": "*",
-    "@opam-alpha/lambda-term": "*"
+    "@opam/lwt": "*",
+    "@opam/lambda-term": "*"
   },
   "peerDependencies": {
     "ocaml": "esy-ocaml/ocaml#4.2.3+esy"
