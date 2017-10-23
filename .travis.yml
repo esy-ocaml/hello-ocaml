@@ -9,5 +9,5 @@ install:
 - esy install
 script:
 - esy build
-- esy ./_install/bin/hello.native
+- esy ./_esyinstall/bin/hello.native
 
