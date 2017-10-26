@@ -24,7 +24,7 @@ Then build the project:
 
 Run compiled executables:
 
-    % esy ./_install/bin/hello.native
+    % esy ./_esyinstall/bin/hello.native
 
 Note that you need to run them with Esy as they rely on the environment.
 
