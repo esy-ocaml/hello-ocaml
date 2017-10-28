@@ -5,25 +5,19 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "make build install"
-    ],
-    "release": {
-      "releasedBinaries": [
-        "hello.native"
+      [
+        "make",
+        "esy-install"
       ]
-    }
-  },
-  "scripts": {
-    "build": "esy build",
-    "shell": "esy shell",
-    "clean": "esy clean",
-    "repl": "esy utop",
-    "editor": "esy $EDITOR",
-    "test": "echo 'No tests but that is ok for now...'"
+    ],
+    "buildsInSource": true
   },
   "dependencies": {
-    "@opam/lwt": "*",
-    "@opam/lambda-term": "*"
+    "@esy-ocaml/esy-installer": "^0.0.0",
+    "@opam/jbuilder": "^1.0.0-beta14",
+    "@opam/lambda-term": "^1.11.0",
+    "@opam/lwt": "^3.1.0",
+    "@opam/merlin": "^3.0.3"
   },
   "peerDependencies": {
     "ocaml": "~4.2.3000"

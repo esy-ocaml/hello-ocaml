@@ -1,2 +1,2 @@
 let () =
-  Lwt_main.run (Util.hello ())
+  Lwt_main.run (Lib.Util.hello ())

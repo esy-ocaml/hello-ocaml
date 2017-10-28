@@ -1,4 +1,6 @@
 npm-debug.log
+.merlin
+yarn-error.log
 node_modules/
 _build
 _esybuild
@@ -6,4 +8,5 @@ _esyinstall
 _release
 *.byte
 *.native
-yarn.lock
+esy.lock
+esy-ocaml-project.install

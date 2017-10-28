@@ -1,70 +1,24 @@
-#
-# Configuration
-#
-
-# List of ocamlfind libraries used in a project
-DEPENDENCIES = lambda-term lwt
-
-# ocamlbuild tags (same syntax as in _tags file)
-define OCB_TAGS
-	true:bin_annot \
-	${DEPENDENCIES:%=true:package(%)} \
-	<node_modules>:-traverse
-endef
-
-# ocamlbuild flags
-define OCB_FLAGS
-	-no-links \
-	-use-ocamlfind \
-	${OCB_TAGS:%=-tag-line "%"} \
-	-I lib -I bin
-endef
-
-define OCB_LIB_FLAGS
-	-build-dir $$cur__target_dir
-endef
-
-define OCB_BIN_FLAGS
-	-build-dir $$cur__install
-endef
-
-#
-# Shortcuts
-#
-
 all: build
 
-#
-# Build targets
-#
+build: build-lib build-bin
 
-build: native byte lib
+build-lib:
+	@esy jbuilder build lib
 
-lib: libhello.cma libhello.cmxa libhello.cmxs
-native: hello.native
-byte: hello.byte
-
-%.cma %.cmxa %.cmxs:
-	@ocamlbuild ${OCB_FLAGS} ${OCB_LIB_FLAGS} $(@)
-
-%.native %.byte:
-	@ocamlbuild ${OCB_FLAGS} ${OCB_BIN_FLAGS} $(@)
-
-#
-# Installation
-#
-
-install: install-lib
-
-install-lib: lib
-	@ocamlfind install $$cur__name lib/META $$cur__target_dir/lib/libhello.*
-
-#
-# Utilities
-#
+build-bin:
+	@esy jbuilder build bin/hello.exe
 
 clean:
-	@ocamlbuild -clean
+	@esy jbuilder clean
+	@rm -rf _esybuild _esyinstall _release node_modules
+
+esy-install:
+ifndef cur__install
+	@echo "error: this command requires esy environment" && exit 1
+endif
+	@jbuilder build lib
+	@jbuilder build bin/hello.exe
+	@jbuilder build @install
+	@esy-installer
 
 .DEFAULT: all
-.PHONY: all build install clean lib native byte install-lib
