@@ -22,11 +22,11 @@
     "test": "echo 'No tests but that is ok for now...'"
   },
   "resolutions": {
-    "**/@opam-alpha/ocamlbuild": "esy-ocaml/ocamlbuild#0.11.0-esy"
+    "**/@opam/ocamlbuild": "esy-ocaml/ocamlbuild#0.11.0-esy"
   },
   "dependencies": {
-    "@opam-alpha/lwt": "*",
-    "@opam-alpha/lambda-term": "*"
+    "@opam/lwt": "*",
+    "@opam/lambda-term": "*"
   },
   "peerDependencies": {
     "ocaml": "esy-ocaml/ocaml#4.4.2+esy"
