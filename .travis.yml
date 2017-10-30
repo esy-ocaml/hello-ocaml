@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - 6
+- 8
 os:
 - linux
 - osx
@@ -9,5 +10,4 @@ install:
 - esy install
 script:
 - esy build
-- esy ./_esyinstall/bin/hello.native
-
+- esy ./_esyinstall/bin/hello
