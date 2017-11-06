@@ -28,7 +28,7 @@ Now you can run your editor within the environment (which also includes merlin):
 After you make some changes to source code, you can re-run project's build
 using:
 
-    % make build
+    % esy build
 
 And test compiled executable:
 

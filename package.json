@@ -5,12 +5,13 @@
   "license": "MIT",
   "esy": {
     "build": [
-      [
-        "make",
-        "esy-install"
-      ]
+      "jbuilder build bin/hello.exe"
     ],
-    "buildsInSource": true
+    "install": [
+      "jbuilder build @install",
+      "esy-installer"
+    ],
+    "buildsInSource": "_build"
   },
   "dependencies": {
     "@esy-ocaml/esy-installer": "^0.0.0",
