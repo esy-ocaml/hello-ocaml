@@ -5,10 +5,9 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "jbuilder build bin/hello.exe"
+      "jbuilder build"
     ],
     "install": [
-      "jbuilder build @install",
       "esy-installer"
     ],
     "buildsInSource": "_build"
@@ -17,13 +16,13 @@
     "@esy-ocaml/esy-installer": "^0.0.0",
     "@opam/jbuilder": "^1.0.0-beta14",
     "@opam/lambda-term": "^1.11.0",
-    "@opam/lwt": "^3.1.0",
-    "@opam/merlin": "^3.0.3"
+    "@opam/lwt": "^3.1.0"
   },
   "peerDependencies": {
     "ocaml": "~4.2.3000"
   },
   "devDependencies": {
+    "@opam/merlin": "^3.0.3",
     "ocaml": "~4.2.3000"
   }
 }
