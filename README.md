@@ -24,6 +24,7 @@ Then build the project dependencies along with the project itself:
 Now you can run your editor within the environment (which also includes merlin):
 
     % esy $EDITOR
+    % esy vim
 
 After you make some changes to source code, you can re-run project's build
 using:
@@ -33,10 +34,6 @@ using:
 And test compiled executable:
 
     % esy ./_build/default/bin/hello.exe
-
-To clean built artefacts:
-
-    % make clean
 
 Shell into environment:
 
