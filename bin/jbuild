@@ -3,4 +3,4 @@
 (executable
  ((name hello)
   (public_name hello)
-  (libraries (lib))))
+  (libraries (cohttp cohttp-lwt cohttp-lwt-unix lib))))
