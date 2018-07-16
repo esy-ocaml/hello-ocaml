@@ -5,7 +5,7 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "jbuilder build"
+      "dune build"
     ],
     "install": [
       "esy-installer"
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@esy-ocaml/esy-installer": "^0.0.0",
-    "@opam/jbuilder": "*",
+    "@opam/dune": "*",
     "@opam/lambda-term": "*",
     "@opam/lwt": "4.0.0",
     "ocaml": "*"

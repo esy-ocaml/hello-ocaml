@@ -1,0 +1,4 @@
+(library
+  (name lib)
+  (public_name esy-ocaml-project)
+  (libraries lambda-term lwt))
