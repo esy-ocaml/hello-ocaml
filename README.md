@@ -1,6 +1,6 @@
-# esy-ocaml-project
+# hello-ocaml
 
-[![Build Status](https://travis-ci.org/esy-ocaml/esy-ocaml-project.svg?branch=master)](https://travis-ci.org/esy-ocaml/esy-ocaml-project)
+[![Build Status](https://travis-ci.org/esy-ocaml/hello-ocaml.svg?branch=master)](https://travis-ci.org/esy-ocaml/hello-ocaml)
 
 A project which demonstrates an OCaml workflow with [Esy][].
 

@@ -2,5 +2,5 @@
 
 (library
  ((name lib)
-  (public_name esy-ocaml-project)
+  (public_name hello-ocaml)
   (libraries (lambda-term lwt))))

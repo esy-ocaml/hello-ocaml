@@ -1,5 +1,5 @@
 {
-  "name": "esy-ocaml-project",
+  "name": "hello-ocaml",
   "version": "0.1.0",
   "description": "OCaml workflow with Esy",
   "license": "MIT",
