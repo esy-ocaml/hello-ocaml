@@ -1,4 +1,3 @@
-open Lwt
 open LTerm_style
 open LTerm_text
 

@@ -5,10 +5,10 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "jbuilder build"
+      "dune build"
     ],
     "install": [
-      "esy-installer"
+      "dune install --prefix=#{self.install}"
     ],
     "buildsInSource": "_build"
   },
