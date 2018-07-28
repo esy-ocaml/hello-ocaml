@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-- 6
 - 8
 os:
 - linux
@@ -11,3 +10,4 @@ install:
 script:
 - esy build
 - esy ./_build/default/bin/hello.exe
+- esy x hello
