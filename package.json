@@ -4,25 +4,17 @@
   "description": "OCaml workflow with Esy",
   "license": "MIT",
   "esy": {
-    "build": [
-      "dune build"
-    ],
-    "install": [
-      "dune install --prefix=#{self.install}"
-    ],
-    "buildsInSource": "_build"
-  },
-  "resolutions": {
-    "**/@opam/lwt": "4.0.0",
-    "**/@opam/lwt_log": "1.1.0"
+    "build": "dune build",
+    "release": {
+      "releasedBinaries": [
+        "hello"
+      ]
+    }
   },
   "dependencies": {
-    "@esy-ocaml/esy-installer": "^0.0.0",
-    "@opam/jbuilder": "*",
+    "@opam/dune": "*",
     "@opam/lambda-term": "*",
-    "@opam/lwt": "4.0.0"
-  },
-  "peerDependencies": {
+    "@opam/lwt": "^4.0.0",
     "ocaml": "~4.6.0"
   },
   "devDependencies": {
