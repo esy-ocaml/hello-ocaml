@@ -15,10 +15,10 @@
     "@opam/dune": "*",
     "@opam/lambda-term": "*",
     "@opam/lwt": "^4.0.0",
-    "ocaml": "~4.7.0"
+    "ocaml": "~4.6.0"
   },
   "devDependencies": {
     "@opam/merlin": "^3.0.3",
-    "ocaml": "~4.7.0"
+    "ocaml": "~4.6.0"
   }
 }
