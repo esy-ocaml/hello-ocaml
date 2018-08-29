@@ -1,9 +1,12 @@
 platform:
     - x64
 
+cache:
+    - C:\Users\appveyor\.esy
+
 # Workaround for esy/esy#388
 environment:
-    HOME: C:/Users/appveyor
+    HOME: C:\Users\appveyor
 
 install:
     # The x64 is required as a workaround for esy/esy#412
