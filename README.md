@@ -1,5 +1,6 @@
 # hello-ocaml
 
+[![Build status](https://ci.appveyor.com/api/projects/status/owyhaxk3ebeb6yq8/branch/master?svg=true)](https://ci.appveyor.com/project/esy/hello-ocaml/branch/master)
 [![Build Status](https://travis-ci.org/esy-ocaml/hello-ocaml.svg?branch=master)](https://travis-ci.org/esy-ocaml/hello-ocaml)
 
 A project which demonstrates an OCaml workflow with [Esy][].
