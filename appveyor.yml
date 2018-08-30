@@ -17,6 +17,6 @@ install:
 
 build_script:
     - esy build
-    - esy x Hello
+    - _build\default\bin\hello.exe
 
 test: off
