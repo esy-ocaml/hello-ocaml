@@ -5,20 +5,17 @@
   "license": "MIT",
   "esy": {
     "build": "dune build -p #{self.name}",
-    "release": {
-      "releasedBinaries": [
-        "hello"
-      ]
-    }
+    "buildsInSource": "_build",
+    "release": { "releasedBinaries": [ "hello" ] }
   },
   "dependencies": {
     "@opam/dune": "*",
     "@opam/lambda-term": "*",
     "@opam/lwt": "^4.0.0",
+    "@opam/ppx_expect": "bryphe/ppx_expect#0a55598",
+    "@opam/ppx_inline_test": "v0.11.0",
+    "@opam/re": "1.8.0",
     "ocaml": "~4.6.0"
   },
-  "devDependencies": {
-    "@opam/merlin": "^3.0.3",
-    "ocaml": "~4.6.0"
-  }
+  "devDependencies": { "@opam/merlin": "^3.0.3", "ocaml": "~4.6.0" }
 }

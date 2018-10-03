@@ -1,4 +1,7 @@
 (library
   (name lib)
+  (flags (:standard (-w -39)))
+  (inline_tests)
   (public_name hello-ocaml)
-  (libraries lambda-term lwt))
+  (libraries lambda-term lwt ppx_expect ppx_inline_test)
+  (preprocess (pps ppxlib ppx_expect ppx_inline_test)))
