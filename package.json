@@ -7,7 +7,7 @@
     "build": "dune build -p #{self.name}",
     "release": {
       "releasedBinaries": [
-        "hello"
+        "hello.exe"
       ]
     }
   },
