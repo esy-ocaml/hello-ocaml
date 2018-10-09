@@ -5,6 +5,7 @@
   "license": "MIT",
   "esy": {
     "build": "dune build -p #{self.name}",
+    "buildsInSource": "_build",
     "release": {
       "releasedBinaries": [
         "hello.exe"
