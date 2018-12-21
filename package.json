@@ -6,12 +6,16 @@
   "esy": {
     "build": "dune build -p #{self.name}",
     "release": {
-      "releasedBinaries": [
-        "hello"
+      "bin": "hello",
+      "includePackages": [
+        "root",
+        "@opam/camomile"
       ]
     }
   },
-  "scripts": {"test": "esy x hello"},
+  "scripts": {
+    "test": "esy x hello"
+  },
   "dependencies": {
     "@opam/dune": "*",
     "@opam/lambda-term": "*",
