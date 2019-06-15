@@ -20,12 +20,12 @@ jobs:
       ESY__CACHE_SOURCE_TARBALL_PATH: ${{ parameters.ESY__CACHE_SOURCE_TARBALL_PATH }}
 
     steps:
-      - bash: "source ./.ci/build.sh && npmInstallEsy"
-        displayName: "npm install -g esy"
-      - bash: "source ./.ci/build.sh && esyInstall"
-        displayName: "esy install"
-      - bash: "source ./.ci/build.sh && esyBuild"
-        displayName: "esy build"
+      - script: "node .ci/build.js npmInstallEsy"
+        displayName: "Install esy"
+      - script: "node .ci/build.js esyInstall"
+        displayName: "Install project dependencies"
+      - script: "node .ci/build.js esyBuild"
+        displayName: "Build project"
       # # - template: utils/use-node.yml
       # - template: utils/use-esy.yml
       # - template: utils/restore-build-cache.yml
