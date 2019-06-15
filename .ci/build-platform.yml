@@ -28,7 +28,7 @@ jobs:
       displayName: "Install esy"
     - script: "node .ci/build.js restoreCache"
       displayName: "Restore install & build caches"
-    - script: "node .ci/build.js esyInstall"
+    - script: "node .ci/build.js restoreCache"
       displayName: "Install project dependencies"
     - script: "node .ci/build.js esyBuild"
       displayName: "Build project"

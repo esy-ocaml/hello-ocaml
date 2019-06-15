@@ -101,7 +101,7 @@ async function esyBuild() {
 }
 
 let commands = {
-  npmInstallEsy, esyBuild, esyInstall
+  npmInstallEsy, esyBuild, esyInstall, restoreCache
 }
 
 async function main() {
