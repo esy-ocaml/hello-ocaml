@@ -26,6 +26,8 @@ jobs:
         checkLatest: false
     - script: "node .ci/build.js npmInstallEsy"
       displayName: "Install esy"
+    - script: "node .ci/build.js restoreCache"
+      displayName: "Restore install & build caches"
     - script: "node .ci/build.js esyInstall"
       displayName: "Install project dependencies"
     - script: "node .ci/build.js esyBuild"
