@@ -28,6 +28,11 @@ function run(...line) {
 
 ESY_VERSION = 'latest'
 
+let {
+  SYSTEM_TEAMFOUNDATIONCOLLECTIONURI,
+  SYSTEM_TEAMPROJECT
+} = process.env;
+
 function error(msg) {
   console.error(msg);
   process.exit(1);
@@ -38,14 +43,36 @@ async function npmInstallEsy() {
   await run('npm', 'install', '--global', esy);
 }
 
+async fetchLatestBuild({branchName}) {
+  let params = {
+    'branchName': `refs/heads/${branchName}`,
+    // filter succeded and completed builds
+    'deletedFilter': 'excludeDeleted',
+    'statusFilter': 'completed',
+    'resultFilter': 'succeeded'
+    // get latest
+    'queryOrder': 'finishTimeDescending',
+    '$top': '1',
+    'api-version': '4.1'
+  };
+  let apiRoot = `${SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}`
+  let projName = `${SYSTEM_TEAMPROJECT}`
+  let url = `${apiRoot}/${projName}/_apis/build/builds?${encodeParams(params)}`
+}
+
+function restoreCache() {
+  await fetchLatestBuild({branchName: 'master'})
+}
+
 function esyInstall() {
+  return;
   await run('esy', 'install');
 }
 
 function esyBuild() {
+  return;
   await run('esy', 'build');
 }
-
 
 let commands = {
   npmInstallEsy, esyBuild, esyInstall
