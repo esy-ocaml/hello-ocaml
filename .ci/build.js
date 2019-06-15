@@ -56,7 +56,7 @@ function error(msg) {
 function encodeParams(params) {
   let items = [];
   for (let name in params) {
-    items.append(`${name}=${encodeURIComponent(params[name])}`);
+    items.push(`${name}=${encodeURIComponent(params[name])}`);
   }
   return items.join('&');
 }
