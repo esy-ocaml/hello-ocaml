@@ -47,8 +47,9 @@ async function apiCall(path, params) {
   console.log('URL:   ', path);
   console.log('PARAMS:', params)
   let data = await runAndCollectStdout('curl', url);
-  console.log(data);
-  return JSON.parse(data)
+  data = JSON.parse(data);
+  console.log(JSON.stringify(data, null, 2));
+  return data;
 }
 
 ESY_VERSION = 'latest'
@@ -100,7 +101,7 @@ async function fetchArtifactInfo(buildInfo) {
   };
   let url = `${AZURE_PROJECT_BUILDS_API_ROOT}/${buildInfo.id}/artifacts`
   let data = await apiCall(url, params);
-  return JSON.parse(data);
+  return data;
 }
 
 async function npmInstallEsy() {
