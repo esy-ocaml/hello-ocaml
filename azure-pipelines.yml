@@ -1,7 +1,15 @@
-name: Build npm release
+name: Build esy project
 
 trigger:
-  - master
+  batch: true
+  branches:
+    include:
+    - '*'
+
+pr:
+  branches:
+    include:
+    - '*'
 
 jobs:
   - template: .ci/build-platform.yml
