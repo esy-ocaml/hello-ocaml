@@ -28,22 +28,27 @@ function run(...line) {
 
 ESY_VERSION = 'latest'
 
-let commands = {
-  npmInstallEsy: async () => {
-    let esy = `esy@${ESY_VERSION}`;
-    await run('npm', 'install', '--global', esy);
-  },
-  esyInstall: async () => {
-    await run('esy', 'install');
-  },
-  esyBuild: async () => {
-    await run('esy', 'build');
-  },
-}
-
 function error(msg) {
   console.error(msg);
   process.exit(1);
+}
+
+async function npmInstallEsy() {
+  let esy = `esy@${ESY_VERSION}`;
+  await run('npm', 'install', '--global', esy);
+}
+
+function esyInstall() {
+  await run('esy', 'install');
+}
+
+function esyBuild() {
+  await run('esy', 'build');
+}
+
+
+let commands = {
+  npmInstallEsy, esyBuild, esyInstall
 }
 
 async function main() {
