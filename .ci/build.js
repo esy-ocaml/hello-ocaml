@@ -20,10 +20,25 @@ function waitForChildProcess(child) {
   });
 }
 
-function run(...line) {
+async function run(...line) {
   let [cmd, ...args] = line;
-  let cp = child_process.spawn(cmd, args, {stdio: 'inherit'});
-  return waitForChildProcess(cp)
+  let cp = child_process.spawn(cmd, args, {
+    stdio: ['ignore', 'inherit', 'inherit']
+  });
+  await waitForChildProcess(cp)
+}
+
+async function runAndCollectStdout(...line) {
+  let [cmd, ...args] = line;
+  let cp = child_process.spawn(cmd, args, {
+    stdio: ['ignore', 'pipe', 'inherit']
+  });
+  let chunks = [];
+  cp.stdout.on('data', data => {
+    chunks.push(data)
+  });
+  await waitForChildProcess(cp)
+  return chunks.join('')
 }
 
 ESY_VERSION = 'latest'
@@ -38,9 +53,12 @@ function error(msg) {
   process.exit(1);
 }
 
-async function npmInstallEsy() {
-  let esy = `esy@${ESY_VERSION}`;
-  await run('npm', 'install', '--global', esy);
+function encodeParams(params) {
+  let items = [];
+  for (let name in params) {
+    items.append(`${name}=${encodeURIComponent(params[name])}`);
+  }
+  return items.join('&');
 }
 
 async function fetchLatestBuild({branchName}) {
@@ -49,7 +67,7 @@ async function fetchLatestBuild({branchName}) {
     // filter succeded and completed builds
     'deletedFilter': 'excludeDeleted',
     'statusFilter': 'completed',
-    'resultFilter': 'succeeded'
+    'resultFilter': 'succeeded',
     // get latest
     'queryOrder': 'finishTimeDescending',
     '$top': '1',
@@ -58,10 +76,18 @@ async function fetchLatestBuild({branchName}) {
   let apiRoot = `${SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}`
   let projName = `${SYSTEM_TEAMPROJECT}`
   let url = `${apiRoot}/${projName}/_apis/build/builds?${encodeParams(params)}`
+  let data = await runAndCollectStdout('curl', url);
+  return JSON.parse(data);
+}
+
+async function npmInstallEsy() {
+  let esy = `esy@${ESY_VERSION}`;
+  await run('npm', 'install', '--global', esy);
 }
 
 async function restoreCache() {
-  await fetchLatestBuild({branchName: 'master'})
+  let info = await fetchLatestBuild({branchName: 'master'});
+  console.log(info);
 }
 
 async function esyInstall() {
