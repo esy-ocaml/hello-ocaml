@@ -43,7 +43,7 @@ async function npmInstallEsy() {
   await run('npm', 'install', '--global', esy);
 }
 
-async fetchLatestBuild({branchName}) {
+async function fetchLatestBuild({branchName}) {
   let params = {
     'branchName': `refs/heads/${branchName}`,
     // filter succeded and completed builds
@@ -60,16 +60,16 @@ async fetchLatestBuild({branchName}) {
   let url = `${apiRoot}/${projName}/_apis/build/builds?${encodeParams(params)}`
 }
 
-function restoreCache() {
+async function restoreCache() {
   await fetchLatestBuild({branchName: 'master'})
 }
 
-function esyInstall() {
+async function esyInstall() {
   return;
   await run('esy', 'install');
 }
 
-function esyBuild() {
+async function esyBuild() {
   return;
   await run('esy', 'build');
 }
