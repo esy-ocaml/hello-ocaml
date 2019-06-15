@@ -24,14 +24,14 @@ jobs:
       inputs:
         versionSpec: '10.x'
         checkLatest: false
-    - script: "node .ci/build.js npmInstallEsy"
-      displayName: "Install esy"
+    # - script: "node .ci/build.js npmInstallEsy"
+    #   displayName: "Install esy"
     - script: "node .ci/build.js restoreCache"
       displayName: "Restore install & build caches"
-    - script: "node .ci/build.js restoreCache"
-      displayName: "Install project dependencies"
-    - script: "node .ci/build.js esyBuild"
-      displayName: "Build project"
+    # - script: "node .ci/build.js restoreCache"
+    #   displayName: "Install project dependencies"
+    # - script: "node .ci/build.js esyBuild"
+    #   displayName: "Build project"
       # # - template: utils/use-node.yml
       # - template: utils/use-esy.yml
       # - template: utils/restore-build-cache.yml
