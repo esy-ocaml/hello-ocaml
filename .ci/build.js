@@ -41,6 +41,14 @@ async function runAndCollectStdout(...line) {
   return chunks.join('')
 }
 
+function encodeParams(params) {
+  let items = [];
+  for (let name in params) {
+    items.push(`${name}=${encodeURIComponent(params[name])}`);
+  }
+  return items.join('&');
+}
+
 async function apiCall(path, params) {
   let url = `${path}?${encodeParams(params)}`
   console.log('-- API CALL --');
@@ -56,7 +64,8 @@ ESY_VERSION = 'latest'
 
 let {
   SYSTEM_TEAMFOUNDATIONCOLLECTIONURI,
-  SYSTEM_TEAMPROJECT
+  SYSTEM_TEAMPROJECT,
+  BUILD_SOURCEBRANCH
 } = process.env;
 
 let AZURE_API_ROOT = `${SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}`
@@ -70,17 +79,9 @@ function error(msg) {
   process.exit(1);
 }
 
-function encodeParams(params) {
-  let items = [];
-  for (let name in params) {
-    items.push(`${name}=${encodeURIComponent(params[name])}`);
-  }
-  return items.join('&');
-}
-
 async function fetchLatestBuildInfo({branchName}) {
   let params = {
-    'branchName': `refs/heads/${branchName}`,
+    'branchName': branchName,
     // filter succeded and completed builds
     'deletedFilter': 'excludeDeleted',
     'statusFilter': 'completed',
@@ -110,7 +111,7 @@ async function npmInstallEsy() {
 }
 
 async function restoreCache() {
-  let buildInfo = await fetchLatestBuildInfo({branchName: 'master'});
+  let buildInfo = await fetchLatestBuildInfo({branchName: BUILD_SOURCEBRANCH});
   let artifactsInfo = await fetchArtifactInfo(buildInfo);
 }
 
