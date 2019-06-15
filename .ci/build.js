@@ -89,7 +89,7 @@ async function fetchLatestBuildInfo({branchName}) {
     '$top': '1',
     'api-version': '4.1'
   };
-  let data = await apiCall(`${AZURE_PROJECT_BUILDS_API_ROOT}?${params}`, params)
+  let data = await apiCall(`${AZURE_PROJECT_BUILDS_API_ROOT}`, params)
   return data.value[0]
 }
 
@@ -98,7 +98,7 @@ async function fetchArtifactInfo(buildInfo) {
     // 'artifactName': ART_NAME,
     'api-version': '4.1'
   };
-  let url = `${AZURE_PROJECT_BUILDS_API_ROOT}/${buildInfo.id}/artifacts?${params}`
+  let url = `${AZURE_PROJECT_BUILDS_API_ROOT}/${buildInfo.id}/artifacts`
   let data = await apiCall(url, params);
   return JSON.parse(data);
 }
