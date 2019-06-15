@@ -48,6 +48,12 @@ let {
   SYSTEM_TEAMPROJECT
 } = process.env;
 
+let AZURE_API_ROOT = `${SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}`
+let AZURE_PROJECT_API_ROOT = `${AZURE_API_ROOT}/${SYSTEM_TEAMPROJECT}`
+let AZURE_PROJECT_BUILDS_API_ROOT = `${AZURE_PROJECT_API_ROOT}/_apis/build/builds`
+
+let ART_NAME = `cache-${process.env.AGENT_OS}-install`
+
 function error(msg) {
   console.error(msg);
   process.exit(1);
@@ -61,8 +67,8 @@ function encodeParams(params) {
   return items.join('&');
 }
 
-async function fetchLatestBuild({branchName}) {
-  let params = {
+async function fetchLatestBuildInfo({branchName}) {
+  let params = encodeParams({
     'branchName': `refs/heads/${branchName}`,
     // filter succeded and completed builds
     'deletedFilter': 'excludeDeleted',
@@ -72,10 +78,18 @@ async function fetchLatestBuild({branchName}) {
     'queryOrder': 'finishTimeDescending',
     '$top': '1',
     'api-version': '4.1'
-  };
-  let apiRoot = `${SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}`
-  let projName = `${SYSTEM_TEAMPROJECT}`
-  let url = `${apiRoot}/${projName}/_apis/build/builds?${encodeParams(params)}`
+  });
+  let url = `${AZURE_PROJECT_BUILDS_API_ROOT}?${params}`
+  let data = await runAndCollectStdout('curl', url);
+  return JSON.parse(data).value[0]
+}
+
+async function fetchArtifactInfo(buildInfo) {
+  let params = encodeParams({
+    // 'artifactName': ART_NAME,
+    'api-version': '4.1'
+  });
+  let url = `${AZURE_PROJECT_BUILDS_API_ROOT}/${buildInfo.id}/artifacts?${params}`
   let data = await runAndCollectStdout('curl', url);
   return JSON.parse(data);
 }
@@ -86,8 +100,10 @@ async function npmInstallEsy() {
 }
 
 async function restoreCache() {
-  let info = await fetchLatestBuild({branchName: 'master'});
-  console.log(info);
+  let buildInfo = await fetchLatestBuildInfo({branchName: 'master'});
+  console.log(buildInfo);
+  let artifactsInfo = await fetchArtifactInfo(buildInfo);
+  console.log(artifactsInfo);
 }
 
 async function esyInstall() {
