@@ -41,6 +41,16 @@ async function runAndCollectStdout(...line) {
   return chunks.join('')
 }
 
+async function apiCall(path, params) {
+  let url = `${path}?${encodeParams(params)}`
+  console.log('-- API CALL --');
+  console.log('URL:   ', path);
+  console.log('PARAMS:', params)
+  let data = await runAndCollectStdout('curl', url);
+  console.log(data);
+  return JSON.parse(data)
+}
+
 ESY_VERSION = 'latest'
 
 let {
@@ -68,7 +78,7 @@ function encodeParams(params) {
 }
 
 async function fetchLatestBuildInfo({branchName}) {
-  let params = encodeParams({
+  let params = {
     'branchName': `refs/heads/${branchName}`,
     // filter succeded and completed builds
     'deletedFilter': 'excludeDeleted',
@@ -78,19 +88,18 @@ async function fetchLatestBuildInfo({branchName}) {
     'queryOrder': 'finishTimeDescending',
     '$top': '1',
     'api-version': '4.1'
-  });
-  let url = `${AZURE_PROJECT_BUILDS_API_ROOT}?${params}`
-  let data = await runAndCollectStdout('curl', url);
-  return JSON.parse(data).value[0]
+  };
+  let data = await apiCall(`${AZURE_PROJECT_BUILDS_API_ROOT}?${params}`, params)
+  return data.value[0]
 }
 
 async function fetchArtifactInfo(buildInfo) {
-  let params = encodeParams({
+  let params = {
     // 'artifactName': ART_NAME,
     'api-version': '4.1'
-  });
+  };
   let url = `${AZURE_PROJECT_BUILDS_API_ROOT}/${buildInfo.id}/artifacts?${params}`
-  let data = await runAndCollectStdout('curl', url);
+  let data = await apiCall(url, params);
   return JSON.parse(data);
 }
 
@@ -101,9 +110,7 @@ async function npmInstallEsy() {
 
 async function restoreCache() {
   let buildInfo = await fetchLatestBuildInfo({branchName: 'master'});
-  console.log(buildInfo);
   let artifactsInfo = await fetchArtifactInfo(buildInfo);
-  console.log(artifactsInfo);
 }
 
 async function esyInstall() {
