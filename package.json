@@ -17,13 +17,13 @@
     "test": "esy x hello"
   },
   "dependencies": {
-    "@opam/dune": "*",
+    "@opam/dune": ">=2.6",
     "@opam/lambda-term": "*",
     "@opam/lwt": "^4.0.0",
-    "ocaml": "~4.6.0"
+    "ocaml": "~4.10.0"
   },
   "devDependencies": {
     "@opam/merlin": "^3.0.3",
-    "ocaml": "~4.6.0"
+    "@opam/odoc": "*"
   }
 }
