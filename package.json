@@ -5,25 +5,29 @@
   "license": "MIT",
   "esy": {
     "build": "dune build -p #{self.name}",
+    "buildDev": "refmterr dune build --promote-install-files --root . --only-package #{self.name}",
+    "NOTE": "Optional release Section. Customizes result of `esy release`",
     "release": {
-      "bin": "hello",
-      "includePackages": [
-        "root",
-        "@opam/camomile"
+      "rewritePrefix": true,
+      "bin": [
+        "Hello"
       ]
     }
   },
   "scripts": {
-    "test": "esy x hello"
+    "test": "esy x hello",
+    "format": "esy dune build @fmt --auto-promote",
+    "doc": "esy dune build @doc"
   },
   "dependencies": {
     "@opam/dune": ">=2.6",
     "@opam/lambda-term": "*",
-    "@opam/lwt": "^4.0.0",
-    "ocaml": "~4.10.0"
+    "@opam/lwt": "^5.0.0",
+    "ocaml": "4.10.1002"
   },
   "devDependencies": {
-    "@opam/merlin": "^3.0.3",
-    "@opam/odoc": "*"
+    "@opam/merlin": "^3.4.0",
+    "@opam/odoc": "*",
+    "refmterr": "*"
   }
 }
